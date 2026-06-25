@@ -10,7 +10,7 @@ Cualquier cambio en la estructura documental de este repositorio debe validar qu
 - Comprueba que todos los enlaces en Markdown que utilizan el esquema `file://` o rutas relativas apunten a archivos existentes.
 - **Ruta de verificación crítica:**
   - Los enlaces desde `AGENTS.md` a `docs/agent/*` y `README.md`.
-  - Los enlaces desde `README.md` a `prompts/agents-first-documentation-review.prompt.md`, `examples/usage-example.md`, `docs/prompt-versioning.md` y `CHANGELOG.md`.
+  - Los enlaces desde `README.md` a `prompts/agents-first-documentation-review.prompt.md`, `examples/usage-example.md`, `PROMPT_VERSIONING.md` y `docs/CHANGELOG.md`.
 
 ---
 
@@ -26,5 +26,5 @@ Asegúrate de que el formato Markdown esté limpio y sea compatible con cualquie
 ## 3. Consistencia Semántica y de Versión
 
 Antes de dar por concluido un cambio en los prompts:
-- Comprueba que la versión del prompt descrita en `CHANGELOG.md` coincide con las reglas de versionado de `docs/prompt-versioning.md`.
+- Comprueba que la versión del prompt descrita en `docs/CHANGELOG.md` coincide con las reglas de versionado de `PROMPT_VERSIONING.md`.
 - Asegura que no se hayan introducido enlaces a archivos inexistentes o instrucciones específicas de plataformas no presentes en el repositorio.

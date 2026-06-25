@@ -88,6 +88,37 @@ Este repositorio contiene [descripción breve del proyecto].
 ## Cambios Sensibles
 - Requieren aprobación humana: producción, permisos, infraestructura, autenticación y datos sensibles.`
     },
+    "config-md": {
+        title: "CONFIG.md",
+        status: "Requerido en el ejemplo",
+        description: "Documenta configuración, variables, servicios externos y qué no aplica en este repositorio.",
+        code: `# Configuración
+
+## Configuración Requerida
+No hay configuración obligatoria.
+
+## GitHub Pages
+- Servir desde la raíz del repositorio.
+- No requiere build system.
+
+## Variables de Entorno
+No aplica.`
+    },
+    "data-schema-md": {
+        title: "DATA_SCHEMA.md",
+        status: "Requerido en el ejemplo",
+        description: "Documenta entidades conceptuales del producto aunque no exista base de datos.",
+        code: `# Esquema de Datos y Contratos
+
+## Entidades Conceptuales
+- Prompt maestro
+- Documento de agente
+- Skill
+- Página estática
+
+## Regla
+No inventar modelos ni APIs inexistentes.`
+    },
     "readme-md": {
         title: "README.md",
         status: "Obligatorio",
@@ -111,9 +142,47 @@ Descripción clara para humanos.
 
 ## Flujo
 1. Modificar prompts/agents-first-documentation-review.prompt.md.
-2. Clasificar el cambio según docs/prompt-versioning.md.
-3. Registrar la nueva versión en CHANGELOG.md.
+2. Clasificar el cambio según PROMPT_VERSIONING.md.
+3. Registrar la nueva versión en docs/CHANGELOG.md.
 4. Validar enlaces, Markdown y consistencia del sitio.`
+    },
+    "skill-documentation-audit-md": {
+        title: "skills/documentation-audit/SKILL.md",
+        status: "Ejemplo",
+        description: "Skill de ejemplo para revisar consistencia documental antes de cerrar cambios.",
+        code: `# Skill: Documentation Audit
+
+## Flujo
+1. Revisar AGENTS.md y README.md.
+2. Validar enlaces Markdown.
+3. Buscar secretos.
+4. Confirmar que docs/CHANGELOG.md registre cambios relevantes.`
+    },
+    "claude-md": {
+        title: "CLAUDE.md",
+        status: "Opcional en raíz",
+        description: "Guía raíz para usar Claude con este estándar sin acoplar el prompt a un stack.",
+        code: `# Guía para Claude
+
+Usa el prompt maestro sin acoplarlo a un stack específico.
+
+1. Copia prompts/agents-first-documentation-review.prompt.md.
+2. Pégalo en Claude dentro del contexto del repositorio objetivo.
+3. Pide primero una auditoría de solo lectura.
+4. Revisa el plan antes de autorizar eliminaciones o cambios sensibles.`
+    },
+    "gemini-md": {
+        title: "GEMINI.md",
+        status: "Opcional en raíz",
+        description: "Guía raíz para usar Gemini con este estándar sin asumir tecnologías.",
+        code: `# Guía para Gemini
+
+Usa el prompt maestro aprovechando lectura amplia del repositorio objetivo.
+
+1. Copia prompts/agents-first-documentation-review.prompt.md.
+2. Pide clasificar documentación existente antes de modificar.
+3. Para monorepos, solicita detección de servicios o paquetes.
+4. Revisa manualmente cambios sensibles.`
     }
 };
 
@@ -156,7 +225,7 @@ Este repositorio contiene un prompt maestro, documentación Markdown y una pági
 
 - No asumas frameworks, paquetes ni comandos inexistentes.
 - Mantén el prompt universal y agnóstico.
-- Si actualizas el prompt, actualiza CHANGELOG.md.`,
+- Si actualizas el prompt, actualiza docs/CHANGELOG.md.`,
     usage: `# Ejemplo de Uso
 
 1. Copia el prompt maestro.
@@ -208,7 +277,7 @@ async function loadFileContent(filePath, elementId, fallbackKey = null) {
             target.innerText = fallbacks.copilot;
         } else if (filePath.includes('usage-example')) {
             target.innerText = fallbacks.usage;
-        } else if (filePath.includes('prompt-versioning')) {
+        } else if (filePath.includes('PROMPT_VERSIONING')) {
             target.innerText = fallbacks.versioning;
         }
     }
@@ -270,13 +339,13 @@ function bindModelTabs() {
             const modelConfig = {
                 claude: {
                     intro: "Recomendaciones para usar el prompt maestro con Claude sin acoplarlo a un stack específico.",
-                    path: "docs/agent/CLAUDE.md",
-                    file: "docs/agent/CLAUDE.md"
+                    path: "CLAUDE.md",
+                    file: "CLAUDE.md"
                 },
                 gemini: {
                     intro: "Recomendaciones para usar el prompt maestro con Gemini aprovechando lectura amplia y evidencia local.",
-                    path: "docs/agent/GEMINI.md",
-                    file: "docs/agent/GEMINI.md"
+                    path: "GEMINI.md",
+                    file: "GEMINI.md"
                 },
                 copilot: {
                     intro: "Instrucciones de contexto para GitHub Copilot dentro de este repositorio.",
@@ -347,9 +416,9 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.tree-node.file')?.click();
 
     loadFileContent('prompts/agents-first-documentation-review.prompt.md', 'prompt-code-display');
-    loadFileContent('docs/agent/CLAUDE.md', 'model-code-display');
+    loadFileContent('CLAUDE.md', 'model-code-display');
     loadFileContent('examples/usage-example.md', 'example-markdown-content');
-    loadFileContent('docs/prompt-versioning.md', 'versioning-markdown-content');
+    loadFileContent('PROMPT_VERSIONING.md', 'versioning-markdown-content');
 });
 
 window.addEventListener('hashchange', () => {

@@ -73,6 +73,10 @@ Crea o actualiza esta estructura solo cuando aplique al repositorio real:
 ```txt
 AGENTS.md
 README.md
+CLAUDE.md
+GEMINI.md
+.github/
+  copilot-instructions.md
 docs/
   agent/
     PERMISSIONS.md
@@ -87,6 +91,8 @@ skills/
 ```
 
 No todos los archivos son obligatorios. Crea solo los documentos que aporten valor verificable.
+
+Los archivos `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` son opcionales y deben ubicarse en esas rutas cuando el repositorio realmente necesite instrucciones específicas para esas herramientas. No los escondas dentro de `docs/agent/` si su propósito es ser leídos automáticamente o encontrados de inmediato por una herramienta concreta.
 
 ### `AGENTS.md`
 

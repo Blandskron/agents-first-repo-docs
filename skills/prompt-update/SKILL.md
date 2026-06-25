@@ -26,13 +26,13 @@ Realiza los cambios solicitados por el usuario directamente en el archivo [agent
 > No realices cambios cosméticos innecesarios. Las modificaciones deben enfocarse únicamente en corregir errores o implementar directrices explícitas del usuario.
 
 ### Paso 2: Determinación del Tipo de Versión
-Consulta la política en [prompt-versioning.md](../../docs/prompt-versioning.md) para clasificar el cambio en una de las tres categorías de versionado semántico:
+Consulta la política en [PROMPT_VERSIONING.md](../../PROMPT_VERSIONING.md) para clasificar el cambio en una de las tres categorías de versionado semántico:
 - **PATCH (x.y.Z):** Corrección de textos, orden y formato.
 - **MINOR (x.Y.0):** Adición de reglas u opciones que no rompen la compatibilidad.
 - **MAJOR (X.0.0):** Cambios de estructura obligatoria o reglas restrictivas incompatibles.
 
 ### Paso 3: Registro en el Historial
-Abre [CHANGELOG.md](../../CHANGELOG.md) y añade una nueva sección para la versión calculada:
+Abre [CHANGELOG.md](../../docs/CHANGELOG.md) y añade una nueva sección para la versión calculada:
 - Inserta la fecha actual en formato `YYYY-MM-DD`.
 - Divide los cambios bajo los títulos `### Añadido` o `### Modificado` según corresponda.
 

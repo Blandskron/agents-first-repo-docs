@@ -37,5 +37,5 @@ Cada vez que realices una modificación al prompt principal:
 
 1. **Actualiza el prompt:** Aplica los cambios directamente en `prompts/agents-first-documentation-review.prompt.md`.
 2. **Incrementa la versión:** De acuerdo con la guía SemVer de arriba, determina el nuevo número de versión.
-3. **Registra en el CHANGELOG:** Abre `CHANGELOG.md` en la raíz del proyecto y documenta los cambios de la nueva versión.
+3. **Registra en el CHANGELOG:** Abre `docs/CHANGELOG.md` y documenta los cambios de la nueva versión.
 4. **Crea un Tag en Git (Opcional):** Si el repositorio está alojado en GitHub/GitLab, se recomienda crear un tag de git que coincida con la versión (ej. `git tag -a v1.0.0 -m "Versión 1.0.0"`).

@@ -4,6 +4,17 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [1.3.0] - 2026-06-25
+
+### Añadido
+- **Set Agents-First Completo:** Creación de `docs/agent/RUNBOOK.md`, `docs/agent/SECURITY.md`, `docs/agent/CONFIG.md` y `docs/agent/DATA_SCHEMA.md` para que este repositorio funcione como ejemplo profesional completo.
+- **Catálogo de Skills:** Creación de `docs/skills/README.md` y nuevas skills de ejemplo en `skills/documentation-audit/` y `skills/github-pages-release/`.
+
+### Modificado
+- **Arquitectura Documental Modelo:** Movimiento de `CLAUDE.md`, `GEMINI.md` y `PROMPT_VERSIONING.md` a la raíz para reflejar mejor archivos de entrada y políticas principales del estándar.
+- **Historial Documental:** Movimiento del changelog a `docs/CHANGELOG.md` y actualización de enlaces internos.
+- **Sitio GitHub Pages:** Actualización del árbol interactivo y rutas cargadas por la página para reflejar la nueva estructura.
+
 ## [1.2.0] - 2026-06-25
 
 ### Añadido

@@ -11,9 +11,10 @@ El agente tiene permiso para modificar o crear los siguientes archivos como part
 - **Prompts:** `prompts/agents-first-documentation-review.prompt.md`
 - **Ejemplos:** `examples/usage-example.md`
 - **Sitio GitHub Pages:** `index.html`, `index.css`, `index.js`
-- **Historial de Cambios:** `CHANGELOG.md`
+- **Historial de Cambios:** `docs/CHANGELOG.md`
 - **Instrucciones del Agente:** `AGENTS.md` y `docs/agent/*`
-- **Políticas y Directrices:** `docs/prompt-versioning.md`
+- **Guías de Agente:** `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`
+- **Políticas y Directrices:** `PROMPT_VERSIONING.md`
 
 *Nota: Cualquier modificación a estos archivos debe registrarse con su respectivo cambio de versión en `CHANGELOG.md`.*
 

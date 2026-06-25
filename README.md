@@ -12,6 +12,8 @@ La idea es simple: un dev entra, copia el prompt maestro, lo pega en el agente q
 - Un prompt maestro universal en [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
 - Una estructura documental que sirve como ejemplo real del estándar agents-first.
 - Guías de permisos, validación y versionado para mantener el prompt como producto.
+- Un set completo de documentos `docs/agent/` como referencia profesional, incluso cuando una dimensión no aplique.
+- Ejemplos de skills reutilizables para tareas repetibles.
 - Un ejemplo de uso en [examples/usage-example.md](examples/usage-example.md).
 - Una página estática con HTML, CSS y JS lista para GitHub Pages.
 
@@ -55,7 +57,9 @@ Este repositorio ayuda a transformar proyectos con documentación dispersa en pr
 agents-first-repo-docs/
 ├── README.md
 ├── AGENTS.md
-├── CHANGELOG.md
+├── CLAUDE.md
+├── GEMINI.md
+├── PROMPT_VERSIONING.md
 ├── index.html
 ├── index.css
 ├── index.js
@@ -64,16 +68,24 @@ agents-first-repo-docs/
 ├── examples/
 │   └── usage-example.md
 ├── docs/
-│   ├── prompt-versioning.md
+│   ├── CHANGELOG.md
+│   ├── skills/
+│   │   └── README.md
 │   └── agent/
 │       ├── PERMISSIONS.md
+│       ├── RUNBOOK.md
 │       ├── TESTS.md
-│       ├── CLAUDE.md
-│       └── GEMINI.md
+│       ├── SECURITY.md
+│       ├── CONFIG.md
+│       └── DATA_SCHEMA.md
 ├── .github/
 │   └── copilot-instructions.md
 ├── skills/
-│   └── prompt-update/
+│   ├── prompt-update/
+│   │   └── SKILL.md
+│   ├── documentation-audit/
+│   │   └── SKILL.md
+│   └── github-pages-release/
 │       └── SKILL.md
 └── LICENSE
 ```
@@ -111,7 +123,7 @@ No todos los archivos son obligatorios. El agente debe crear solo lo que tenga s
 - No modificar credenciales.
 - Mantener `AGENTS.md` breve, operativo y enlazado.
 - Mantener `README.md` útil para humanos.
-- Registrar cambios del prompt en [CHANGELOG.md](CHANGELOG.md).
+- Registrar cambios del prompt en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Página GitHub Pages
 
@@ -125,7 +137,7 @@ Está pensada para desplegarse directamente desde la raíz del repositorio en Gi
 
 ## Mantenimiento
 
-Cada mejora relevante del prompt debe seguir [docs/prompt-versioning.md](docs/prompt-versioning.md) y registrarse en [CHANGELOG.md](CHANGELOG.md).
+Cada mejora relevante del prompt debe seguir [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md) y registrarse en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 Para actualizar el prompt, usa la guía especializada en [skills/prompt-update/SKILL.md](skills/prompt-update/SKILL.md).
 
