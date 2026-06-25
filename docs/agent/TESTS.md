@@ -27,4 +27,4 @@ Asegúrate de que el formato Markdown esté limpio y sea compatible con cualquie
 
 Antes de dar por concluido un cambio en los prompts:
 - Comprueba que la versión del prompt descrita en `CHANGELOG.md` coincide con las reglas de versionado de `docs/prompt-versioning.md`.
-- Asegura que no se hayan introducido referencias prohibidas al archivo `GPT.md`.
+- Asegura que no se hayan introducido enlaces a archivos inexistentes o instrucciones específicas de plataformas no presentes en el repositorio.

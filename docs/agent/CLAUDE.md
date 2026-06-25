@@ -1,47 +1,27 @@
-# Guía de Instrucciones para Claude (CLAUDE.md)
+# Guía para Claude
 
-Este documento contiene un conjunto de directrices optimizadas para **Anthropic Claude** (Claude 3, 3.5 Sonnet, etc.) en tareas de desarrollo y mantenimiento dentro del estándar *agents-first*.
+Esta guía resume cómo usar Claude con el estándar **agents-first** de este repositorio sin acoplar el prompt a un stack específico.
 
----
+## Uso Recomendado
 
-## 1. Uso de Bloques XML para Razonamiento
+1. Copia el contenido completo de `prompts/agents-first-documentation-review.prompt.md`.
+2. Pégalo en Claude dentro del contexto del repositorio objetivo.
+3. Pide primero una auditoría de solo lectura.
+4. Revisa el plan de cambios antes de autorizar eliminaciones o cambios sensibles.
 
-Claude responde excepcionalmente bien a etiquetas estructuradas tipo XML. Utiliza siempre la siguiente estructura al planificar y razonar tareas complejas:
+## Instrucciones Útiles
 
-```xml
-<thinking>
-1. Analizar el código existente para X.
-2. Identificar posibles efectos secundarios.
-3. Planificar la modificación de forma segura.
-</thinking>
-```
+- Pide respuestas estructuradas por fases: auditoría, plan, implementación, validación y resumen.
+- Solicita que cite archivos y rutas concretas cuando justifique cambios.
+- Indica que no debe asumir stack, comandos ni arquitectura sin evidencia local.
+- Para tareas grandes, pide que divida el trabajo en lotes verificables.
 
-- **Paso de Razonamiento:** Describe tu análisis mental antes de escribir o modificar archivos.
-- **Paso de Validación:** Coloca tus planes y pruebas preliminares dentro de bloques XML específicos si la tarea es compleja.
+## Buenas Prácticas
 
----
+- Mantén el prompt maestro intacto y agrega contexto específico del repo objetivo después del prompt.
+- Si Claude propone una eliminación documental, exige que explique qué información se migró antes.
+- Si no hay comandos reales de test o build, debe declararlo en vez de inventarlos.
 
-## 2. Reglas de Codificación y TypeScript/JS
+## Resultado Esperado
 
-Si el repositorio utiliza JavaScript o TypeScript:
-- **Estilo de Importación:** Prefiere importaciones de ES modules (`import ... from '...'`) sobre CommonJS (`require`) a menos que el proyecto use este último de forma estricta.
-- **Tipado:** No uses `any` en TypeScript. Define interfaces claras para todas las respuestas de API y estados.
-- **Formateo:** Respeta la configuración local del formateador del proyecto (Prettier, ESLint). Ejecuta siempre `npm run lint` o `eslint .` antes de concluir.
-
----
-
-## 3. Comandos de Utilidad
-
-Siempre que trabajes en un entorno Node:
-- **Instalación:** `npm install`
-- **Iniciar servidor dev:** `npm run dev` o `npm start`
-- **Correr Tests:** `npm test` o `npm run test`
-- **Correr Linter:** `npm run lint`
-
----
-
-## 4. Formato de Respuestas
-
-- **Concisión:** Evita introducciones largas o explicaciones repetitivas del código. Ve directo a la solución.
-- **Markdown:** Utiliza enlaces a archivos en formato absoluto/relativo tal como se describe en `AGENTS.md`.
-- **Explicación de Cambios:** En tu resumen final, lista los archivos modificados con una breve justificación técnica.
+Claude debería entregar una documentación con `AGENTS.md` como entrada para agentes, `README.md` para humanos y documentos especializados solo cuando aporten valor real.

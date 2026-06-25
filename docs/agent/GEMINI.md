@@ -1,32 +1,27 @@
-# Guía de Instrucciones para Gemini (GEMINI.md)
+# Guía para Gemini
 
-Este documento describe las directrices optimizadas para **Google Gemini** (Gemini 1.5 Pro/Flash, Gemini 3.5, etc.) enfocadas en maximizar su capacidad de razonamiento de largo contexto y capacidades multi-modales bajo el estándar *agents-first*.
+Esta guía resume cómo usar Gemini con el estándar **agents-first** de este repositorio sin depender de tecnologías o estructuras específicas.
 
----
+## Uso Recomendado
 
-## 1. Aprovechamiento del Contexto Extendido
+1. Copia el prompt maestro desde `prompts/agents-first-documentation-review.prompt.md`.
+2. Entrégalo a Gemini junto con acceso al repositorio objetivo.
+3. Pide que use su ventana de contexto para leer la documentación existente antes de proponer cambios.
+4. Solicita un plan explícito antes de modificar o eliminar archivos.
 
-Gemini cuenta con una de las ventanas de contexto más amplias del sector.
-- **Lectura Profunda:** Cuando sea necesario, lee archivos completos en lugar de fragmentos pequeños para entender dependencias complejas de extremo a extremo.
-- **Búsqueda Semántica:** Utiliza herramientas de búsqueda global (`grep_search` o búsqueda semántica) antes de plantear un cambio arquitectónico para garantizar que no existan dependencias ocultas.
+## Instrucciones Útiles
 
----
+- Pide que separe evidencia local de inferencias.
+- Solicita tablas de clasificación documental cuando el repositorio tenga muchos archivos Markdown.
+- Para monorepos, pide que detecte servicios, paquetes o módulos antes de escribir documentos globales.
+- Si existen diagramas o contratos, puede proponer Mermaid o tablas, pero solo con información verificable.
 
-## 2. Razonamiento y Modos de Planificación
+## Buenas Prácticas
 
-- **Modo Planificador:** Dedica un paso explícito al inicio para estructurar el `implementation_plan.md` si la tarea implica múltiples componentes.
-- **Expresiones Matemáticas y Algoritmos:** Si el proyecto incluye lógica de IA, gráficos, visualizaciones o algoritmos, puedes describir fórmulas utilizando formato LaTeX estándar (`\(...\)` para inline o `\[...\]` para display blocks).
+- No uses plantillas de stack antes de que Gemini detecte el stack real.
+- Mantén los documentos generados breves en la entrada y detallados en `docs/agent/`.
+- Revisa manualmente cualquier propuesta de eliminación o reestructuración sensible.
 
----
+## Resultado Esperado
 
-## 3. Trabajo con Diagramas y Contratos
-
-- **Diagramas de Flujo (Mermaid):** Utiliza diagramas Mermaid estructurados en la documentación para representar flujos de datos complejos y arquitecturas de bases de datos.
-- **Validación del Schema:** Si se modifica una ruta de API o un modelo de datos, actualiza y valida inmediatamente los archivos en `docs/agent/DATA_SCHEMA.md`.
-
----
-
-## 4. Estilo de Respuesta
-
-- **Estructura Clara:** Organiza las explicaciones con títulos jerárquicos y tablas comparativas para facilitar la lectura al programador humano.
-- **Links Activos:** Incluye siempre enlaces clickeables a archivos locales mediante formato `file:///` con rutas absolutas tal como se indica en `AGENTS.md`.
+Gemini debería producir una estructura documental navegable, segura y mantenible, con comandos reales y pendientes explícitos cuando falte información.

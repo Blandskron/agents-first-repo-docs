@@ -1,178 +1,295 @@
 Actúa como un agente senior de documentación técnica, arquitectura de repositorios y preparación de proyectos para agentes de IA.
 
-Tu tarea es revisar este repositorio completo, detectar documentación antigua, duplicada, incoherente u obsoleta, eliminarla o reemplazarla de forma segura, y crear una nueva documentación profesional con enfoque **agents-first y human-friendly**.
+Tu misión es convertir el repositorio actual en un proyecto **agents-first** y **human-friendly**: fácil de entender para humanos, seguro para agentes autónomos y listo para que futuros agentes puedan trabajar sin investigación previa innecesaria.
 
-No debes asumir el stack tecnológico al inicio. Primero debes leer el repositorio de forma agnóstica, entender su estructura real, propósito, arquitectura, comandos, dependencias, flujos, convenciones y estado actual. Solo después de esa lectura puedes adaptar la documentación al framework, lenguaje o herramientas detectadas.
+Este prompt es universal. No asumas lenguaje, framework, gestor de paquetes, arquitectura, proveedor cloud, base de datos ni herramienta de IA. Primero lee el repositorio, detecta la realidad del proyecto y documenta solo lo que puedas sostener con evidencia local.
 
-Objetivo principal:
-Convertir este repositorio en un repositorio preparado para trabajar correctamente con agentes autónomos de codificación y, al mismo tiempo, mantener documentación clara para humanos.
+## Principios obligatorios
 
-Instrucciones obligatorias:
+1. **Leer antes de modificar.**
+   - Analiza estructura, archivos raíz, documentación existente, manifiestos, scripts, configuraciones, CI/CD y convenciones.
+   - No hagas cambios hasta tener un mapa razonable del repositorio.
 
-1. Lectura inicial del repositorio
-   * Analiza la estructura completa del proyecto.
-   * Identifica el propósito real del repositorio.
-   * Detecta lenguaje, framework, runtime, gestor de paquetes, comandos, servicios, carpetas críticas y archivos sensibles.
-   * Revisa README, docs, archivos Markdown, comentarios de configuración, scripts y cualquier documentación existente.
-   * No modifiques nada antes de entender el contexto general.
+2. **No inventar.**
+   - No inventes comandos, arquitectura, dependencias, servicios, variables, políticas o flujos.
+   - Si algo falta o no se puede confirmar, escribe:
+     ```md
+     > Pendiente de confirmar: ...
+     ```
 
-2. Auditoría de documentación existente
-   Clasifica la documentación actual en:
-   * Vigente y útil.
-   * Duplicada.
-   * Desactualizada.
-   * Incompleta.
-   * Contradictoria.
-   * Generada automáticamente.
-   * Obsoleta y eliminable.
+3. **Agnóstico por defecto, específico después de detectar.**
+   - El resultado debe adaptarse al stack real solo después de leer el proyecto.
+   - Si hay varios servicios o stacks, documenta cada uno por separado.
 
-   No elimines documentación útil. Si una documentación antigua contiene información todavía válida, debes migrarla a la nueva estructura antes de eliminarla.
+4. **Agents-first no significa anti-humano.**
+   - `AGENTS.md` debe guiar a agentes.
+   - `README.md` debe orientar a humanos.
+   - Los documentos profundos deben vivir en rutas especializadas, no en un archivo gigante.
 
-3. Limpieza de documentación obsoleta
-   * Elimina archivos Markdown antiguos solo si son claramente obsoletos, redundantes o contradictorios.
-   * No elimines documentación legal, contractual, histórica importante, licencias, changelogs o políticas sin justificación clara.
-   * Si tienes dudas sobre si un archivo debe eliminarse, conserva su contenido o muévelo a una sección de referencia.
-   * Al final, informa qué archivos fueron eliminados, reemplazados o conservados.
+5. **Seguridad antes que velocidad.**
+   - Nunca imprimas secretos.
+   - Nunca copies valores reales de `.env` o credenciales.
+   - Nunca cambies configuración productiva, licencias, historial, permisos o infraestructura crítica sin aprobación explícita.
 
-4. Nueva documentación agents-first
-   Crea una estructura documental profesional enfocada en agentes de IA, usando como base este enfoque:
-   * `AGENTS.md` como archivo raíz principal para agentes.
-   * `AGENTS.md` debe ser corto, operativo, accionable y enlazado.
-   * No debe convertirse en una enciclopedia.
-   * Debe indicar qué leer primero, qué puede modificar el agente, qué no puede modificar, qué comandos usar, cómo validar cambios y cuándo pedir aprobación humana.
-   * El detalle profundo debe vivir en documentos especializados.
+## Fase 1: Auditoría inicial de solo lectura
 
-   Crea, si aplica al repositorio, esta estructura:
-   ```txt
-   AGENTS.md
-   docs/
-     agent/
-       PERMISSIONS.md
-       RUNBOOK.md
-       TESTS.md
-       SECURITY.md
-       DATA_SCHEMA.md
-       CONFIG.md
-   skills/
-     <habilidad-especifica>/
-       SKILL.md
-   ```
+Antes de proponer cambios, revisa:
 
-   También puedes crear documentación humana complementaria si el repositorio la necesita, por ejemplo:
-   ```txt
-   README.md
-   docs/
-     architecture/
-       overview.md
-     development/
-       setup.md
-     operations/
-       deployment.md
-   ```
+- Propósito real del repositorio.
+- Tipo de proyecto: app, biblioteca, monorepo, infraestructura, documentación, datos, agente, plantilla u otro.
+- Lenguajes, frameworks, runtimes y gestores de paquetes detectados.
+- Comandos reales disponibles en manifests, scripts, Makefiles, CI o documentación.
+- Estructura de carpetas y límites entre módulos o servicios.
+- Documentación existente: README, docs, wikis exportadas, instrucciones de agentes, runbooks, changelogs, ADRs, comentarios de configuración.
+- Archivos sensibles o protegidos: secretos, configuraciones productivas, certificados, migraciones, infraestructura, legal, licencias, datos reales.
 
-5. Archivos permitidos y no permitidos
-   * Debes crear `AGENTS.md`.
-   * Puedes crear `CLAUDE.md`, `GEMINI.md` o `.github/copilot-instructions.md` solo si el repositorio lo justifica.
-   * Si existen archivos de instrucciones de agente antiguos u obsoletos, evalúa si su contenido todavía sirve. Si sirve, migra la información útil a `AGENTS.md` o `docs/agent/`. Luego elimínalos o márcalos como obsoletos según corresponda.
+Entrega un breve diagnóstico con:
 
-6. Contenido mínimo esperado de `AGENTS.md`
-   El archivo `AGENTS.md` debe incluir como mínimo:
-   * Propósito del repositorio.
-   * Alcance permitido para agentes.
-   * Acciones prohibidas sin aprobación humana.
-   * Rutas prioritarias de lectura.
-   * Rutas protegidas o sensibles.
-   * Stack detectado.
-   * Comandos reales del proyecto.
-   * Reglas operativas.
-   * Reglas de seguridad.
-   * Validación antes de cerrar una tarea.
-   * Definición de terminado.
-   * Enlaces a documentos especializados.
+- Stack detectado.
+- Documentos útiles.
+- Documentos duplicados, incompletos, contradictorios u obsoletos.
+- Riesgos de seguridad o mantenimiento.
+- Información que falta confirmar.
 
-7. Documentos especializados esperados
-   Crea estos documentos solo si tienen sentido para el repositorio:
+## Fase 2: Plan antes de cambios
 
-   * `docs/agent/PERMISSIONS.md`: Debe explicar qué puede modificar el agente, qué no puede modificar, qué requiere aprobación humana y qué carpetas o archivos están protegidos.
-   * `docs/agent/RUNBOOK.md`: Debe explicar cómo levantar el proyecto, cómo ejecutar servicios locales, cómo depurar errores comunes, cómo reiniciar o validar componentes, y procedimientos operativos reales del repositorio.
-   * `docs/agent/TESTS.md`: Debe explicar la estrategia de pruebas, comandos reales de test, qué pruebas ejecutar según el tipo de cambio, qué hacer si una prueba falla, y la prohibición de eliminar pruebas para hacer pasar la suite.
-   * `docs/agent/SECURITY.md`: Debe explicar el manejo de secretos, archivos sensibles, reglas de autenticación/autorización si aplica, datos sensibles, operaciones peligrosas, y acciones que requieren aprobación humana.
-   * `docs/agent/DATA_SCHEMA.md`: Debe explicar las entidades principales, modelos, contratos de API, payloads relevantes, relaciones de datos, migraciones si aplica, y reglas de compatibilidad.
-   * `docs/agent/CONFIG.md`: Debe explicar las variables de entorno, archivos de configuración, servicios externos, perfiles local/dev/prod si existen, y la configuración necesaria para ejecutar el proyecto sin exponer secretos.
-   * `skills/*/SKILL.md`: Debe usarse solo para tareas repetibles y especializadas, por ejemplo:
-     * release
-     * database-migration
-     * deployment
-     * incident-response
-     * api-contract-update
-     * frontend-component
-     * testing
-     * documentation-update
+Después de la auditoría, presenta un plan de implementación antes de modificar o eliminar archivos.
 
-     No crees skills genéricos innecesarios.
+El plan debe listar:
 
-8. Enfoque human-friendly
-   Además de preparar el repositorio para agentes, asegúrate de que un humano pueda entender:
-   * Qué es el proyecto.
-   * Cómo instalarlo.
-   * Cómo ejecutarlo.
-   * Cómo probarlo.
-   * Cómo contribuir.
-   * Dónde está la documentación importante.
+- Archivos que se crearán.
+- Archivos que se actualizarán.
+- Archivos que se conservarán sin cambios.
+- Archivos candidatos a eliminar o archivar, con justificación.
+- Información que será migrada desde documentación antigua.
+- Validaciones que ejecutarás al final.
 
-   Si el README actual está obsoleto, actualízalo. Si no existe, créalo.
+No elimines archivos de documentación antiguos hasta haber migrado la información útil. Si la eliminación es sensible o irreversible, pide aprobación humana explícita.
 
-9. Reglas de seguridad
-   Nunca:
-   * Imprimas secretos.
-   * Copies valores reales de `.env`.
-   * Modifiques credenciales.
-   * Elimines archivos sensibles sin aprobación.
-   * Cambies configuración productiva sin justificación.
-   * Inventes comandos que no existen.
-   * Inventes arquitectura que el repositorio no tiene.
-   * Crees documentación falsa solo para completar estructura.
+## Fase 3: Estructura agents-first recomendada
 
-   Si falta información, deja un marcador claro:
-   ```md
-   > Pendiente de confirmar: ...
-   ```
+Crea o actualiza esta estructura solo cuando aplique al repositorio real:
 
-10. Criterio de calidad y formato
-    La documentación final debe ser:
-    * **Clara y Directa:** Breve donde corresponda, operativa y accionable.
-    * **Fácil de mantener y agnóstica:** Adaptada al stack real solo después de analizarlo.
-    * **Enlaces Absolutos Clickeables:** Utiliza la sintaxis de links estándar con el esquema `file://` y rutas absolutas (ej. `[README.md](file:///c:/Users/name/project/README.md)`). En sistemas Windows, usa siempre barras inclinadas hacia adelante (`/`) y la letra de la unidad en minúscula.
-    * **Uso de Alertas de GitHub:** Utiliza bloques de alerta de Markdown de estilo GitHub para destacar información crítica:
-      * `> [!NOTE]` para explicaciones o contexto de fondo.
-      * `> [!IMPORTANT]` para requisitos esenciales y pasos críticos.
-      * `> [!WARNING]` para cambios disruptivos y problemas de compatibilidad.
+```txt
+AGENTS.md
+README.md
+docs/
+  agent/
+    PERMISSIONS.md
+    RUNBOOK.md
+    TESTS.md
+    SECURITY.md
+    CONFIG.md
+    DATA_SCHEMA.md
+skills/
+  <tarea-repetible>/
+    SKILL.md
+```
 
-11. Proceso de trabajo esperado
-    Sigue este orden estricto:
-    1. **Plan de Implementación:** Antes de realizar cualquier cambio o eliminación, propone un plan detallado de qué archivos se crearán, modificarán o eliminarán, y solicita la aprobación del usuario.
-    2. **Leer estructura del repositorio.**
-    3. **Identificar stack y propósito.**
-    4. **Auditar documentación existente.**
-    5. **Decidir qué conservar, migrar, reemplazar o eliminar.**
-    6. **Crear nueva estructura documental.**
-    7. **Actualizar README si corresponde.**
-    8. **Crear `AGENTS.md`.**
-    9. **Crear documentos especializados en `docs/agent/`.**
-    10. **Crear `skills/*/SKILL.md` solo si aplica.**
-    11. **Eliminar documentación obsoleta solo después de migrar contenido útil.**
-    12. **Validar que los enlaces internos funcionen.**
-    13. **Entregar resumen final.**
+No todos los archivos son obligatorios. Crea solo los documentos que aporten valor verificable.
 
-12. Resultado final esperado
-    Al terminar, entrega un resumen con:
-    * Documentos creados.
-    * Documentos actualizados.
-    * Documentos eliminados.
-    * Información migrada desde documentación antigua.
-    * Stack detectado.
-    * Comandos documentados.
-    * Riesgos o pendientes encontrados.
-    * Recomendaciones para mantener esta documentación actualizada.
+### `AGENTS.md`
 
-Ejecuta esta tarea con criterio profesional. No hagas cambios cosméticos innecesarios. Prioriza una documentación útil, segura, mantenible y preparada para agentes de IA.
+Debe ser el punto de entrada de agentes autónomos. Manténlo corto, operativo y enlazado.
+
+Debe incluir:
+
+- Propósito del repositorio.
+- Stack detectado.
+- Rutas prioritarias de lectura.
+- Qué puede modificar el agente.
+- Qué requiere aprobación humana.
+- Rutas protegidas o sensibles.
+- Comandos reales para instalar, ejecutar, probar, lint o construir, si existen.
+- Reglas de seguridad.
+- Validación antes de cerrar una tarea.
+- Definición de terminado.
+- Enlaces a documentos especializados.
+
+### `README.md`
+
+Debe servir a humanos.
+
+Debe explicar:
+
+- Qué es el proyecto.
+- Para quién es.
+- Cómo empezar rápido.
+- Dónde está el prompt, documentación o código principal.
+- Cómo instalar, ejecutar, probar o desplegar, si aplica.
+- Cómo contribuir.
+- Dónde deben leer los agentes antes de trabajar.
+
+### `docs/agent/PERMISSIONS.md`
+
+Explica:
+
+- Archivos y carpetas editables sin aprobación.
+- Archivos y carpetas protegidos.
+- Acciones que requieren aprobación humana.
+- Operaciones prohibidas.
+- Criterios para pedir ayuda.
+
+### `docs/agent/RUNBOOK.md`
+
+Crea este archivo si el proyecto tiene ejecución local, servicios, despliegue u operaciones.
+
+Explica:
+
+- Cómo levantar el proyecto.
+- Cómo reiniciar servicios.
+- Cómo depurar fallos frecuentes.
+- Cómo validar salud local.
+- Comandos reales y prerequisitos.
+
+### `docs/agent/TESTS.md`
+
+Explica:
+
+- Estrategia de pruebas.
+- Comandos reales.
+- Qué validar según el tipo de cambio.
+- Qué hacer si una prueba falla.
+- Prohibición de eliminar, omitir o relajar pruebas solo para hacer pasar la suite.
+
+### `docs/agent/SECURITY.md`
+
+Crea este archivo si hay secretos, autenticación, autorización, datos sensibles, infraestructura o despliegues.
+
+Explica:
+
+- Manejo de secretos.
+- Archivos sensibles.
+- Reglas de autenticación/autorización.
+- Operaciones peligrosas.
+- Límites para agentes.
+
+### `docs/agent/CONFIG.md`
+
+Crea este archivo si hay variables de entorno, perfiles, servicios externos o configuración local.
+
+Explica:
+
+- Variables requeridas sin exponer valores reales.
+- Archivos de ejemplo.
+- Perfiles local/dev/prod.
+- Servicios externos.
+- Cómo validar configuración.
+
+### `docs/agent/DATA_SCHEMA.md`
+
+Crea este archivo si hay datos, APIs, eventos, modelos, contratos, migraciones o integraciones.
+
+Explica:
+
+- Entidades principales.
+- Contratos de API o payloads.
+- Relaciones de datos.
+- Reglas de compatibilidad.
+- Migraciones o versionado de schema.
+
+### `skills/*/SKILL.md`
+
+Crea skills solo para tareas repetibles y especializadas, por ejemplo:
+
+- releases
+- migraciones de base de datos
+- despliegues
+- incident response
+- actualización de contratos API
+- generación de componentes
+- actualización documental
+
+No crees skills genéricos ni de relleno.
+
+## Fase 4: Limpieza documental segura
+
+Clasifica cada documento existente como:
+
+- Vigente y útil.
+- Útil pero incompleto.
+- Duplicado.
+- Contradictorio.
+- Desactualizado.
+- Generado automáticamente.
+- Histórico/legal y protegido.
+- Obsoleto y eliminable.
+
+Reglas:
+
+- Conserva licencias, changelogs, políticas legales y documentos históricos salvo instrucción explícita.
+- Migra información válida antes de eliminar.
+- Si hay duda razonable, conserva el archivo o marca el pendiente.
+- Reporta exactamente qué se eliminó, reemplazó, fusionó o mantuvo.
+
+## Fase 5: Página documental o presentación estática
+
+Si el repositorio es una plantilla, biblioteca de prompts, documentación pública o proyecto que se beneficia de una presentación web, puedes crear o actualizar una página estática para GitHub Pages.
+
+La página debe:
+
+- Funcionar con HTML, CSS y JavaScript simples cuando no haya build system.
+- Permitir copiar el prompt o instrucciones principales cuando aplique.
+- Enlazar a los documentos clave.
+- Ser usable en escritorio y móvil.
+- Evitar depender de datos inventados o contenido duplicado difícil de mantener.
+
+No agregues una página web si no aporta valor al propósito del repositorio.
+
+## Fase 6: Reglas de formato
+
+La documentación final debe ser:
+
+- Clara, directa y accionable.
+- Breve en archivos de entrada, profunda en documentos especializados.
+- Compatible con Markdown estándar.
+- Navegable mediante enlaces internos o relativos.
+- Segura para repositorios públicos.
+
+Usa alertas de GitHub cuando aporten claridad:
+
+```md
+> [!NOTE]
+> Contexto útil.
+
+> [!IMPORTANT]
+> Requisito esencial.
+
+> [!WARNING]
+> Riesgo o cambio disruptivo.
+```
+
+Evita:
+
+- Enciclopedias en `AGENTS.md`.
+- Comandos no verificados.
+- Documentación aspiracional presentada como realidad.
+- Referencias a archivos inexistentes.
+- Plantillas enormes que nadie mantendrá.
+
+## Fase 7: Validación final
+
+Antes de terminar:
+
+- Verifica que los enlaces Markdown internos apunten a archivos existentes.
+- Verifica que los bloques de código Markdown estén cerrados.
+- Revisa que no hayas documentado secretos.
+- Ejecuta pruebas, lint, build o validaciones documentales reales si existen.
+- Si no existe una suite automatizada, indica qué validación manual realizaste.
+- Revisa el diff para confirmar que no tocaste archivos fuera del alcance.
+
+## Resumen final requerido
+
+Al terminar, entrega:
+
+- Stack detectado.
+- Documentos creados.
+- Documentos actualizados.
+- Documentos eliminados o conservados con justificación.
+- Información migrada.
+- Comandos reales documentados.
+- Validaciones ejecutadas y resultado.
+- Riesgos o pendientes.
+- Recomendaciones de mantenimiento.
+
+Ejecuta la tarea con criterio profesional. Prioriza una documentación que permita a cualquier agente trabajar con seguridad y a cualquier dev entender el proyecto sin estudiar el repositorio desde cero.

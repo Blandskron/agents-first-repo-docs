@@ -1,25 +1,25 @@
-# GitHub Copilot System Instructions (.github/copilot-instructions.md)
+# GitHub Copilot Instructions
 
-Este archivo provee directrices de contexto para **GitHub Copilot** (en VS Code, Cursor, o Copilot Chat) para optimizar la generación de código e inline suggestions dentro del repositorio.
+Este repositorio contiene un prompt maestro, documentación Markdown y una página estática sin build system.
 
----
+## Contexto del Proyecto
 
-## 1. Reglas Generales de Generación de Código
+- El producto principal es `prompts/agents-first-documentation-review.prompt.md`.
+- El README está orientado a humanos.
+- `AGENTS.md` está orientado a agentes.
+- `index.html`, `index.css` e `index.js` presentan el proyecto en GitHub Pages.
 
-- **No Generar Boilerplate Innecesario:** Copilot debe enfocarse en autocompletar la función o bloque lógico actual sin crear clases, envoltorios o helpers genéricos.
-- **Mantener el Estilo del Proyecto:** Observa el código circundante y adapta la indentación, uso de comillas, nombres de variables (camelCase, snake_case) y convenciones antes de sugerir código.
+## Reglas de Generación
 
----
+- No asumas frameworks, paquetes ni comandos que no existan en este repositorio.
+- Mantén el prompt maestro universal y agnóstico.
+- Evita duplicar grandes bloques de contenido entre Markdown y JavaScript.
+- Si actualizas el prompt o reglas del estándar, actualiza también `CHANGELOG.md`.
+- Conserva HTML, CSS y JS como archivos estáticos simples.
 
-## 2. Convenciones de Codificación y Comentarios
+## Validación
 
-- **Comentarios Cortos:** Evita comentarios extensos sobre lo obvio. El código autodocumentado es prioritario.
-- **Evitar Código Muerto:** No sugieras bloques de código comentados o anotaciones `TODO` sin justificación.
-- **Modern JavaScript:** Prefiere destructuración, arrow functions y sintaxis moderna (ES6+), manteniendo la compatibilidad con el runtime definido en `package.json`.
-
----
-
-## 3. Pruebas y Validación Local
-
-- Cuando generes un nuevo test o modifiques una función, asegúrate de que el test mantenga consistencia con los esquemas actuales definidos en `docs/agent/DATA_SCHEMA.md`.
-- No alteres ni elimines aserciones existentes en los archivos de prueba para "hacer pasar" tests que fallan tras una modificación.
+- Revisa enlaces Markdown internos.
+- Comprueba que no haya rutas a archivos inexistentes.
+- Mantén los bloques de código Markdown correctamente cerrados.
+- No sugieras cambios en licencia, historial Git o estructura mayor sin aprobación humana.

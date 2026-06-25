@@ -99,9 +99,9 @@ Este repositorio contiene un servicio API REST en Node.js.
 - Ejecutar tests unitarios: `npm test`
 
 ## Rutas Clave de Lectura
-- Configuración de Variables de Entorno: [CONFIG.md](file:///docs/agent/CONFIG.md)
-- Esquemas de Datos y API: [DATA_SCHEMA.md](file:///docs/agent/DATA_SCHEMA.md)
-- Permisos del Agente: [PERMISSIONS.md](file:///docs/agent/PERMISSIONS.md)
+- Configuración de Variables de Entorno: `docs/agent/CONFIG.md`
+- Esquemas de Datos y API: `docs/agent/DATA_SCHEMA.md`
+- Permisos del Agente: `docs/agent/PERMISSIONS.md`
 
 ## Reglas de Validación
 Antes de terminar cualquier tarea de codificación, debes:

@@ -1,61 +1,61 @@
 # Agents First Repo Docs
 
-Repositorio de prompts profesionales para auditar, limpiar y reconstruir la documentación de proyectos de software con enfoque **agents-first** y **human-friendly**.
+Repositorio profesional para convertir cualquier proyecto de software en un repositorio **agents-first** y **human-friendly**.
+
+La idea es simple: un dev entra, copia el prompt maestro, lo pega en el agente que use y el agente queda con una misión clara para auditar, limpiar y reconstruir la documentación del repositorio objetivo sin asumir stack ni inventar arquitectura.
 
 > [!TIP]
-> **Sitio Web Interactivo (GitHub Pages):** Explora y copia las plantillas de modelos y el prompt de auditoría de forma visual en: [blandskron.github.io/agents-first-repo-docs/](https://blandskron.github.io/agents-first-repo-docs/)
+> **Sitio GitHub Pages:** usa la versión visual para leer, navegar y copiar el prompt desde [blandskron.github.io/agents-first-repo-docs](https://blandskron.github.io/agents-first-repo-docs/).
 
-El objetivo de este repositorio es mantener un prompt reutilizable que pueda ejecutarse sobre distintos microservicios, frameworks, lenguajes o arquitecturas, sin asumir tecnología al inicio. El agente primero debe leer el repositorio, entender su contexto real y luego crear documentación útil para agentes de IA y humanos.
+## Qué Entrega Este Repo
 
----
+- Un prompt maestro universal en [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
+- Una estructura documental que sirve como ejemplo real del estándar agents-first.
+- Guías de permisos, validación y versionado para mantener el prompt como producto.
+- Un ejemplo de uso en [examples/usage-example.md](examples/usage-example.md).
+- Una página estática con HTML, CSS y JS lista para GitHub Pages.
 
-> [!NOTE]
-> **Instrucciones para Agentes de IA:** Si eres un agente autónomo de codificación que trabaja en este repositorio, lee el archivo principal [AGENTS.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/AGENTS.md) antes de realizar cualquier cambio.
+## Uso Rápido
 
----
+1. Abre [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
+2. Copia todo el contenido.
+3. Pégalo en tu agente de codificación o documentación.
+4. Ejecuta el agente desde la raíz del repositorio que quieres convertir.
+5. Revisa el plan que proponga antes de aprobar eliminaciones o cambios sensibles.
 
-## Objetivo
+El prompt está diseñado para funcionar con cualquier agente moderno: no depende de Claude, Gemini, Copilot, ChatGPT, Codex ni de un framework específico.
 
-Este repositorio contiene un prompt diseñado para pedirle a un agente de IA que:
+## Para Qué Sirve
 
-* Revise completamente un repositorio.
-* Detecte documentación antigua, duplicada, incompleta u obsoleta.
-* Migre información útil antes de eliminar archivos antiguos.
-* Cree una nueva documentación basada en `AGENTS.md`.
-* Genere documentación operativa para agentes autónomos.
-* Mantenga el repositorio entendible para humanos.
-* Evite crear documentación falsa o inventar arquitectura.
+Este repositorio ayuda a transformar proyectos con documentación dispersa en proyectos que tienen:
 
-## Prompt principal
+- `AGENTS.md` como punto de entrada para agentes.
+- `README.md` claro para humanos.
+- Documentos especializados en `docs/agent/`.
+- Reglas de permisos, seguridad y validación.
+- Comandos reales, no inventados.
+- Limpieza segura de documentación obsoleta.
+- Skills solo cuando existan tareas repetibles que lo justifiquen.
 
-El prompt principal se encuentra en:
+## Casos de Uso
 
-```txt
-prompts/agents-first-documentation-review.prompt.md
-```
+- Microservicios backend.
+- Frontends.
+- Aplicaciones fullstack.
+- Monorepos.
+- Repositorios de infraestructura.
+- Bibliotecas y SDKs.
+- Repositorios de agentes IA.
+- Proyectos heredados con documentación contradictoria.
+- Repositorios de prompts, plantillas o documentación pública.
 
-Este archivo debe usarse como prompt base para cualquier repositorio que necesite una auditoría y reconstrucción documental.
-
-## Casos de uso
-
-Este prompt puede utilizarse en:
-
-* Microservicios backend.
-* Frontends.
-* Aplicaciones fullstack.
-* Repositorios de infraestructura.
-* Repositorios de agentes IA.
-* Repositorios de automatización.
-* Proyectos monolíticos.
-* Proyectos con múltiples servicios.
-* Repositorios heredados con documentación desordenada.
-
-## Estructura del repositorio
+## Estructura del Repositorio
 
 ```txt
 agents-first-repo-docs/
 ├── README.md
 ├── AGENTS.md
+├── CHANGELOG.md
 ├── index.html
 ├── index.css
 ├── index.js
@@ -64,120 +64,71 @@ agents-first-repo-docs/
 ├── examples/
 │   └── usage-example.md
 ├── docs/
-│   ├── agent/
-│   │   ├── PERMISSIONS.md
-│   │   ├── TESTS.md
-│   │   ├── CLAUDE.md
-│   │   └── GEMINI.md
-│   └── prompt-versioning.md
+│   ├── prompt-versioning.md
+│   └── agent/
+│       ├── PERMISSIONS.md
+│       ├── TESTS.md
+│       ├── CLAUDE.md
+│       └── GEMINI.md
 ├── .github/
 │   └── copilot-instructions.md
 ├── skills/
 │   └── prompt-update/
 │       └── SKILL.md
-├── CHANGELOG.md
 └── LICENSE
 ```
 
-## Formato del prompt
+## Resultado Esperado en un Repo Objetivo
 
-El prompt debe guardarse en formato Markdown:
-
-```txt
-.prompt.md
-```
-
-Se recomienda este formato porque permite:
-
-* Mantener secciones claras.
-* Usar listas ordenadas.
-* Incluir árboles de carpetas.
-* Documentar instrucciones técnicas.
-* Versionar cambios fácilmente en Git.
-* Reutilizar el prompt en distintos agentes IA.
-
-## Uso recomendado
-
-1. Copiar el contenido de:
-
-```txt
-prompts/agents-first-documentation-review.prompt.md
-```
-
-2. Pegarlo en el agente de IA que trabajará sobre el repositorio.
-
-3. Ejecutarlo desde la raíz del proyecto que se quiere auditar.
-
-4. Revisar los cambios propuestos por el agente antes de aprobar eliminaciones.
-
-5. Confirmar que la nueva documentación creada sea coherente con el proyecto real.
-
-## Resultado esperado en los repositorios auditados
-
-Después de usar este prompt, el repositorio objetivo debería quedar con una estructura documental similar a:
+Después de aplicar el prompt, el repositorio auditado puede quedar con una estructura similar a:
 
 ```txt
 AGENTS.md
+README.md
 docs/
   agent/
     PERMISSIONS.md
     RUNBOOK.md
     TESTS.md
     SECURITY.md
-    DATA_SCHEMA.md
     CONFIG.md
+    DATA_SCHEMA.md
 skills/
-  <habilidad-especifica>/
+  <tarea-repetible>/
     SKILL.md
-README.md
 ```
 
-No todos los archivos son obligatorios. El agente debe crear solo los documentos que tengan sentido según el repositorio analizado.
+No todos los archivos son obligatorios. El agente debe crear solo lo que tenga sentido según evidencia del repositorio analizado.
 
-## Reglas importantes
+## Reglas del Estándar
 
-El agente que use este prompt debe:
+- Leer antes de modificar.
+- No asumir stack tecnológico.
+- No inventar comandos.
+- No inventar arquitectura.
+- No eliminar documentación útil sin migrarla.
+- No exponer secretos.
+- No modificar credenciales.
+- Mantener `AGENTS.md` breve, operativo y enlazado.
+- Mantener `README.md` útil para humanos.
+- Registrar cambios del prompt en [CHANGELOG.md](CHANGELOG.md).
 
-* Leer antes de modificar.
-* No asumir el stack tecnológico.
-* No inventar comandos.
-* No inventar arquitectura.
-* No eliminar documentación útil sin migrarla.
-* No exponer secretos.
-* No modificar credenciales.
-* Crear `AGENTS.md` como archivo principal para agentes.
-* Mantener el README útil para humanos.
+## Página GitHub Pages
 
-## Versionado del prompt
+La página estática vive en:
 
-Cada cambio importante al prompt debe registrarse en `CHANGELOG.md`.
+- [index.html](index.html)
+- [index.css](index.css)
+- [index.js](index.js)
 
-Se recomienda versionar el prompt de forma semántica:
+Está pensada para desplegarse directamente desde la raíz del repositorio en GitHub Pages. No requiere build system.
 
-```txt
-v1.0.0
-v1.1.0
-v1.2.0
-```
+## Mantenimiento
 
-Ejemplo:
+Cada mejora relevante del prompt debe seguir [docs/prompt-versioning.md](docs/prompt-versioning.md) y registrarse en [CHANGELOG.md](CHANGELOG.md).
 
-```txt
-v1.0.0 - Primera versión estable del prompt agents-first.
-v1.1.0 - Mejora en reglas de eliminación de documentación obsoleta.
-v1.2.0 - Ajustes para proyectos multi-stack y microservicios.
-```
+Para actualizar el prompt, usa la guía especializada en [skills/prompt-update/SKILL.md](skills/prompt-update/SKILL.md).
 
 ## Licencia
 
-Este repositorio puede usar una licencia abierta si el objetivo es compartir el prompt públicamente.
-
-Licencia recomendada:
-
-```txt
-MIT
-```
-
-## Estado del proyecto
-
-Este repositorio funciona como base reusable para estandarizar documentación técnica preparada para agentes de IA y equipos humanos.
+MIT. Consulta [LICENSE](LICENSE).

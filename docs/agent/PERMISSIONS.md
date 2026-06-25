@@ -10,6 +10,7 @@ El agente tiene permiso para modificar o crear los siguientes archivos como part
 
 - **Prompts:** `prompts/agents-first-documentation-review.prompt.md`
 - **Ejemplos:** `examples/usage-example.md`
+- **Sitio GitHub Pages:** `index.html`, `index.css`, `index.js`
 - **Historial de Cambios:** `CHANGELOG.md`
 - **Instrucciones del Agente:** `AGENTS.md` y `docs/agent/*`
 - **Políticas y Directrices:** `docs/prompt-versioning.md`

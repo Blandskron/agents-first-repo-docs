@@ -4,6 +4,17 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [1.2.0] - 2026-06-25
+
+### Añadido
+- **Prompt Universal Reforzado:** Reestructuración del prompt maestro en fases claras de auditoría, plan, implementación, limpieza segura, página documental opcional y validación final.
+- **Orientación GitHub Pages:** Mejora del README y del sitio estático para presentar el repositorio como producto copiable y desplegable.
+
+### Modificado
+- **Agnosticismo Multi-Agente:** Ajuste de guías para Claude, Gemini y Copilot para evitar supuestos de stack, versiones de modelos o comandos no verificados.
+- **Documentación Interna:** Actualización de `AGENTS.md`, `README.md`, `docs/agent/TESTS.md` y `skills/prompt-update/SKILL.md` para alinear el repositorio con su propio estándar.
+- **Página Estática:** Corrección de textos principales, versión visible y enlace del repositorio en GitHub.
+
 ## [1.1.0] - 2026-06-25
 
 ### Añadido
@@ -13,7 +24,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 - **Habilidad de Actualización (Skills):** Creación del primer skill especializado `skills/prompt-update/SKILL.md` para automatizar las actualizaciones seguras y versionamiento del prompt.
 
 ### Modificado
-- **Limpieza de Referencias Obsoletas:** Eliminadas de forma completa y segura todas las referencias implícitas al archivo deprecado `GPT.md`.
+- **Limpieza de Referencias Obsoletas:** Eliminadas referencias a instrucciones antiguas y no presentes en la estructura actual.
 
 ## [1.0.0] - 2026-06-25
 

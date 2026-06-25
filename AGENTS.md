@@ -1,38 +1,74 @@
 # Instrucciones de Agente (AGENTS.md)
 
-Este repositorio contiene un conjunto de prompts profesionales reutilizables para auditar, limpiar y reconstruir la documentación de cualquier proyecto de software con un enfoque *agents-first* y *human-friendly*.
+Este repositorio mantiene un prompt maestro y una página estática para ayudar a devs a convertir cualquier repositorio en un proyecto **agents-first** y **human-friendly**.
 
-## Propósito del Repositorio
-Servir como biblioteca y estándar de prompts y ejemplos para la reestructuración documental de repositorios de software, asegurando que estén listos para interactuar con agentes de IA autónomos.
+## Propósito
 
-## Stack Tecnológico Detectado
-- **Tipo de Repositorio:** Solo documentación y prompts (Markdown).
-- **Control de Versiones:** Git.
-- **Formato principal:** Markdown (`.prompt.md`, `.md`).
+Entregar un estándar reutilizable: el usuario copia el prompt principal, lo entrega a su agente de IA y ese agente audita, limpia y reconstruye la documentación del repositorio objetivo sin asumir tecnologías.
 
-## Rutas Prioritarias de Lectura
-1. **Instrucciones de Lectura y Uso:** [README.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/README.md)
-2. **Prompt Principal:** [agents-first-documentation-review.prompt.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/prompts/agents-first-documentation-review.prompt.md)
-3. **Estrategia de Versionado:** [prompt-versioning.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/docs/prompt-versioning.md)
-4. **Ejemplo de Uso:** [usage-example.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/examples/usage-example.md)
+## Stack Detectado
 
-## Archivos de Guía del Agente
-- **Permisos del Agente:** [PERMISSIONS.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/docs/agent/PERMISSIONS.md)
-- **Validación y Pruebas:** [TESTS.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/docs/agent/TESTS.md)
-- **Guía de Claude:** [CLAUDE.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/docs/agent/CLAUDE.md)
-- **Guía de Gemini:** [GEMINI.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/docs/agent/GEMINI.md)
-- **GitHub Copilot:** [copilot-instructions.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/.github/copilot-instructions.md)
+- **Tipo:** repositorio de documentación, prompts y sitio estático.
+- **Lenguajes:** Markdown, HTML, CSS y JavaScript vanilla.
+- **Build:** no hay build system; GitHub Pages puede servir los archivos raíz directamente.
+- **Control de versiones:** Git.
 
-## Habilidades Disponibles (Skills)
-- **Actualización del Prompt:** [SKILL.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/skills/prompt-update/SKILL.md)
+## Lectura Prioritaria
+
+1. [README.md](README.md)
+2. [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md)
+3. [docs/prompt-versioning.md](docs/prompt-versioning.md)
+4. [examples/usage-example.md](examples/usage-example.md)
+5. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
+6. [docs/agent/TESTS.md](docs/agent/TESTS.md)
+
+## Superficie Editable
+
+Puedes modificar:
+
+- `prompts/agents-first-documentation-review.prompt.md`
+- `README.md`
+- `CHANGELOG.md`
+- `examples/usage-example.md`
+- `docs/**/*.md`
+- `skills/**/*.md`
+- `index.html`, `index.css`, `index.js`
+
+## Requiere Aprobación Humana
+
+Pide aprobación antes de:
+
+- Cambiar o eliminar `LICENSE`.
+- Eliminar el prompt principal.
+- Hacer cambios incompatibles en la estructura esperada por el prompt.
+- Reescribir historial Git, tags o ramas remotas.
+- Eliminar carpetas completas como `prompts/`, `docs/`, `examples/` o `skills/`.
 
 ## Reglas Operativas
-1. **Sin Stack Asumido en el Prompt:** El prompt principal debe ser completamente agnóstico en cuanto a frameworks o lenguajes al inicio de su ejecución.
-2. **Sin referencias a GPT.md:** Nunca menciones ni asumas la existencia del archivo `GPT.md`.
-3. **Registro de Cambios:** Cualquier modificación a los prompts o la documentación debe quedar registrada de forma semántica en `CHANGELOG.md` siguiendo las reglas en `prompt-versioning.md`.
 
-## Validación antes de cerrar una tarea
-Antes de finalizar tu trabajo en este repositorio, debes:
-1. Verificar que todos los enlaces internos de Markdown funcionen correctamente.
-2. Comprobar que no existan errores de renderizado de Markdown.
-3. Asegurar que las modificaciones cumplan con el versionado semántico indicado en `CHANGELOG.md`.
+- El prompt principal debe seguir siendo universal y agnóstico al stack.
+- No documentes comandos que no existan en este repositorio.
+- Mantén el sitio estático sin dependencias de build.
+- Evita duplicar contenido extenso entre Markdown y JavaScript; si hay fallback, debe ser claramente secundario.
+- Toda mejora relevante del prompt o la documentación debe registrarse en `CHANGELOG.md`.
+- No agregues referencias a archivos de instrucciones específicos de una plataforma si esos archivos no existen en el repositorio.
+
+## Validación
+
+Antes de cerrar una tarea:
+
+1. Verifica enlaces internos de Markdown.
+2. Comprueba que los bloques de código Markdown estén cerrados.
+3. Revisa que el sitio `index.html` pueda cargar el prompt y los documentos enlazados.
+4. Confirma que `CHANGELOG.md` refleje cambios semánticos del prompt.
+5. Revisa que no se hayan introducido referencias a archivos inexistentes.
+
+## Definición de Terminado
+
+Una tarea está terminada cuando:
+
+- El prompt sigue siendo copiable y universal.
+- La documentación del repo es coherente consigo misma.
+- La página estática presenta el proyecto y permite copiar el prompt.
+- Los cambios están registrados en `CHANGELOG.md` cuando corresponde.
+- Las validaciones documentales fueron ejecutadas o se explica por qué no aplican.
