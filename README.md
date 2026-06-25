@@ -2,7 +2,17 @@
 
 Repositorio de prompts profesionales para auditar, limpiar y reconstruir la documentación de proyectos de software con enfoque **agents-first** y **human-friendly**.
 
+> [!TIP]
+> **Sitio Web Interactivo (GitHub Pages):** Explora y copia las plantillas de modelos y el prompt de auditoría de forma visual en: [blandskron.github.io/agents-first-repo-docs/](https://blandskron.github.io/agents-first-repo-docs/)
+
 El objetivo de este repositorio es mantener un prompt reutilizable que pueda ejecutarse sobre distintos microservicios, frameworks, lenguajes o arquitecturas, sin asumir tecnología al inicio. El agente primero debe leer el repositorio, entender su contexto real y luego crear documentación útil para agentes de IA y humanos.
+
+---
+
+> [!NOTE]
+> **Instrucciones para Agentes de IA:** Si eres un agente autónomo de codificación que trabaja en este repositorio, lee el archivo principal [AGENTS.md](file:///c:/Users/BlandskronNotebook/Documents/blandskron/prompt/agents-first-repo-docs/AGENTS.md) antes de realizar cualquier cambio.
+
+---
 
 ## Objetivo
 
@@ -15,7 +25,6 @@ Este repositorio contiene un prompt diseñado para pedirle a un agente de IA que
 * Genere documentación operativa para agentes autónomos.
 * Mantenga el repositorio entendible para humanos.
 * Evite crear documentación falsa o inventar arquitectura.
-* No considere `GPT.md`, ya que está deprecado.
 
 ## Prompt principal
 
@@ -46,12 +55,26 @@ Este prompt puede utilizarse en:
 ```txt
 agents-first-repo-docs/
 ├── README.md
+├── AGENTS.md
+├── index.html
+├── index.css
+├── index.js
 ├── prompts/
 │   └── agents-first-documentation-review.prompt.md
 ├── examples/
 │   └── usage-example.md
 ├── docs/
+│   ├── agent/
+│   │   ├── PERMISSIONS.md
+│   │   ├── TESTS.md
+│   │   ├── CLAUDE.md
+│   │   └── GEMINI.md
 │   └── prompt-versioning.md
+├── .github/
+│   └── copilot-instructions.md
+├── skills/
+│   └── prompt-update/
+│       └── SKILL.md
 ├── CHANGELOG.md
 └── LICENSE
 ```
@@ -122,7 +145,6 @@ El agente que use este prompt debe:
 * No eliminar documentación útil sin migrarla.
 * No exponer secretos.
 * No modificar credenciales.
-* No crear `GPT.md`.
 * Crear `AGENTS.md` como archivo principal para agentes.
 * Mantener el README útil para humanos.
 
