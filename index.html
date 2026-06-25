@@ -16,17 +16,20 @@
 </head>
 <body>
     <div class="app-container">
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
         <!-- Sidebar Navigation -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
                 <div class="brand-logo">
                     <i class="fa-solid fa-robot brand-icon"></i>
-                    <div class="logo-glow"></div>
                 </div>
                 <div class="brand-details">
                     <h1>Agents First</h1>
-                    <span>v1.3.0 Standard</span>
+                    <span>v1.3.1 Standard</span>
                 </div>
+                <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Cerrar navegación">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
             
             <nav class="sidebar-nav">
@@ -68,6 +71,9 @@
         <main class="main-content">
             <!-- Header/Top Bar -->
             <header class="top-bar">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Abrir navegación">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     <input type="text" id="search-input" placeholder="Buscar en la documentación...">

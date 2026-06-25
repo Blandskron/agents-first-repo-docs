@@ -4,6 +4,13 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [1.3.1] - 2026-06-25
+
+### Modificado
+- **Interfaz GitHub Pages:** Rediseño visual con paleta profesional light-first, modo oscuro coherente, superficies limpias y menor carga decorativa.
+- **Responsive Móvil:** Implementación de navegación lateral abrible/cerrable en pantallas pequeñas, con backdrop, cierre por botón y tecla Escape.
+- **Estabilidad Visual:** Ajustes de layout para evitar roturas en secciones de estructura, modelos, prompt y contenido Markdown.
+
 ## [1.3.0] - 2026-06-25
 
 ### Añadido

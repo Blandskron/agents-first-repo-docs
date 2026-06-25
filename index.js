@@ -253,6 +253,8 @@ function switchTab(tabId) {
     if (window.location.hash !== `#${tabId}`) {
         window.location.hash = tabId;
     }
+
+    closeSidebar();
 }
 
 async function loadFileContent(filePath, elementId, fallbackKey = null) {
@@ -296,6 +298,26 @@ function bindNavigation() {
             event.preventDefault();
             switchTab(item.getAttribute('data-tab'));
         });
+    });
+}
+
+function openSidebar() {
+    document.body.classList.add('sidebar-open');
+}
+
+function closeSidebar() {
+    document.body.classList.remove('sidebar-open');
+}
+
+function bindSidebar() {
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', openSidebar);
+    document.getElementById('sidebar-close')?.addEventListener('click', closeSidebar);
+    document.getElementById('sidebar-backdrop')?.addEventListener('click', closeSidebar);
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeSidebar();
+        }
     });
 }
 
@@ -378,12 +400,12 @@ function bindCopyButtons() {
 function bindThemeToggle() {
     const themeBtn = document.getElementById('theme-toggle-btn');
     themeBtn.addEventListener('click', () => {
-        const isLight = document.body.getAttribute('data-theme') === 'light';
-        if (isLight) {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        if (isDark) {
             document.body.removeAttribute('data-theme');
             themeBtn.querySelector('i').className = 'fa-solid fa-moon';
         } else {
-            document.body.setAttribute('data-theme', 'light');
+            document.body.setAttribute('data-theme', 'dark');
             themeBtn.querySelector('i').className = 'fa-solid fa-sun';
         }
     });
@@ -405,6 +427,7 @@ function bindSearch() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+    bindSidebar();
     bindNavigation();
     bindTreeView();
     bindModelTabs();
