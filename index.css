@@ -22,6 +22,7 @@
     --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
     --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.08);
     --sidebar-width: 292px;
+    --sidebar-collapsed-width: 76px;
     --radius: 8px;
     --font-primary: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -56,6 +57,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -65,6 +67,11 @@ body {
     font-family: var(--font-primary);
     overflow-x: hidden;
     transition: background-color 0.2s ease, color 0.2s ease;
+    --active-sidebar-width: var(--sidebar-width);
+}
+
+body.sidebar-collapsed {
+    --active-sidebar-width: var(--sidebar-collapsed-width);
 }
 
 button,
@@ -94,6 +101,11 @@ button {
     transition: transform 0.24s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
+body.sidebar-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width);
+    padding-inline: 14px;
+}
+
 .sidebar-backdrop {
     position: fixed;
     inset: 0;
@@ -108,6 +120,12 @@ button {
     align-items: center;
     gap: 12px;
     min-height: 44px;
+}
+
+body.sidebar-collapsed .sidebar-brand {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
 }
 
 .brand-logo,
@@ -142,6 +160,18 @@ button {
     letter-spacing: 0.04em;
 }
 
+body.sidebar-collapsed .brand-details,
+body.sidebar-collapsed .nav-item span,
+body.sidebar-collapsed .github-btn span {
+    display: none;
+}
+
+body.sidebar-collapsed .nav-item,
+body.sidebar-collapsed .github-btn {
+    justify-content: center;
+    padding-inline: 0;
+}
+
 .sidebar-close,
 .mobile-menu-btn,
 .action-btn {
@@ -158,7 +188,16 @@ button {
 }
 
 .sidebar-close {
-    display: none;
+    display: inline-grid;
+}
+
+body.sidebar-collapsed .sidebar-close {
+    width: 34px;
+    height: 34px;
+}
+
+body.sidebar-collapsed .sidebar-close i {
+    transform: rotate(180deg);
 }
 
 .mobile-menu-btn {
@@ -227,15 +266,17 @@ button {
 
 .main-content {
     min-height: 100vh;
-    margin-left: var(--sidebar-width);
+    margin-left: var(--active-sidebar-width);
     padding: 22px clamp(18px, 4vw, 44px) 36px;
+    transition: margin-left 0.24s ease, transform 0.24s ease;
 }
 
 .top-bar {
     position: sticky;
     top: 0;
     z-index: 15;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: 14px;
     padding: 8px 0 18px;
@@ -246,7 +287,7 @@ button {
 .search-box {
     position: relative;
     flex: 1;
-    max-width: 620px;
+    max-width: none;
 }
 
 .search-icon {
@@ -275,9 +316,22 @@ button {
 }
 
 .header-actions {
-    display: flex;
+    display: grid;
+    grid-template-columns: 40px minmax(148px, auto);
     align-items: center;
     gap: 10px;
+}
+
+.header-actions .action-btn {
+    height: 42px;
+}
+
+.header-actions .copy-prompt-trigger {
+    width: auto;
+    min-width: 148px;
+    height: 42px;
+    min-height: 42px;
+    padding-inline: 16px;
 }
 
 .copy-prompt-trigger,
@@ -840,8 +894,13 @@ code {
         overflow: hidden;
     }
 
+    body,
+    body.sidebar-collapsed {
+        --active-sidebar-width: 0px;
+    }
+
     body.sidebar-open .sidebar {
-        transform: translateX(0);
+        left: 0;
     }
 
     body.sidebar-open .sidebar-backdrop {
@@ -850,13 +909,49 @@ code {
 
     .sidebar {
         width: min(86vw, 320px);
-        transform: translateX(-105%);
+        left: calc(-1 * min(86vw, 320px));
+        transform: none;
         box-shadow: var(--shadow-md);
+        transition: left 0.24s ease, background-color 0.2s ease, border-color 0.2s ease;
     }
 
-    .sidebar-close,
+    body.sidebar-open .sidebar {
+        left: 0;
+    }
+
     .mobile-menu-btn {
         display: inline-grid;
+    }
+
+    .sidebar-close {
+        display: inline-grid;
+    }
+
+    .sidebar-close i,
+    body.sidebar-collapsed .sidebar-close i {
+        transform: none;
+    }
+
+    body.sidebar-collapsed .sidebar {
+        width: min(86vw, 320px);
+        padding: 18px;
+    }
+
+    body.sidebar-collapsed .sidebar-brand {
+        grid-template-columns: 40px 1fr auto;
+        justify-items: stretch;
+    }
+
+    body.sidebar-collapsed .brand-details,
+    body.sidebar-collapsed .nav-item span,
+    body.sidebar-collapsed .github-btn span {
+        display: block;
+    }
+
+    body.sidebar-collapsed .nav-item,
+    body.sidebar-collapsed .github-btn {
+        justify-content: flex-start;
+        padding: 9px 10px;
     }
 
     .main-content {
@@ -865,6 +960,7 @@ code {
     }
 
     .top-bar {
+        grid-template-columns: auto 1fr auto;
         gap: 10px;
         padding-top: 8px;
     }
@@ -874,6 +970,7 @@ code {
     }
 
     .header-actions {
+        grid-template-columns: 40px 40px;
         gap: 8px;
     }
 

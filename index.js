@@ -302,20 +302,72 @@ function bindNavigation() {
 }
 
 function openSidebar() {
+    document.body.classList.remove('sidebar-collapsed');
     document.body.classList.add('sidebar-open');
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar && isMobileLayout()) {
+        sidebar.style.left = '0px';
+        sidebar.style.transform = 'translateX(100%)';
+    }
 }
 
 function closeSidebar() {
     document.body.classList.remove('sidebar-open');
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+        sidebar.style.left = '';
+        sidebar.style.transform = '';
+    }
+}
+
+function isMobileLayout() {
+    return window.matchMedia('(max-width: 820px)').matches;
+}
+
+function toggleDesktopSidebar() {
+    if (isMobileLayout()) {
+        closeSidebar();
+        return;
+    }
+
+    document.body.classList.toggle('sidebar-collapsed');
+    const collapsed = document.body.classList.contains('sidebar-collapsed');
+    const sidebarToggle = document.getElementById('sidebar-close');
+    const mainContent = document.querySelector('.main-content');
+    if (mainContent) {
+        mainContent.style.marginLeft = collapsed ? '76px' : '';
+        mainContent.style.position = collapsed ? 'relative' : '';
+        mainContent.style.left = collapsed ? '-216px' : '';
+        mainContent.style.width = collapsed ? 'calc(100% + 216px)' : '';
+    }
+    if (sidebarToggle) {
+        sidebarToggle.setAttribute('aria-label', collapsed ? 'Expandir navegación' : 'Colapsar navegación');
+        sidebarToggle.setAttribute('title', collapsed ? 'Expandir navegación' : 'Colapsar navegación');
+    }
 }
 
 function bindSidebar() {
     document.getElementById('mobile-menu-btn')?.addEventListener('click', openSidebar);
-    document.getElementById('sidebar-close')?.addEventListener('click', closeSidebar);
+    document.getElementById('sidebar-close')?.addEventListener('click', toggleDesktopSidebar);
     document.getElementById('sidebar-backdrop')?.addEventListener('click', closeSidebar);
 
     window.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
+            closeSidebar();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        const mainContent = document.querySelector('.main-content');
+        if (isMobileLayout()) {
+            document.body.classList.remove('sidebar-collapsed');
+            if (mainContent) {
+                mainContent.style.marginLeft = '';
+                mainContent.style.position = '';
+                mainContent.style.left = '';
+                mainContent.style.width = '';
+            }
+        } else {
             closeSidebar();
         }
     });

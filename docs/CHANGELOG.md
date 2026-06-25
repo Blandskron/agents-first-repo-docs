@@ -4,6 +4,39 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [1.3.7] - 2026-06-25
+
+### Modificado
+- **Colapso Desktop:** Desplazamiento relativo del contenido principal al colapsar el sidebar para asegurar posición visual correcta.
+
+## [1.3.6] - 2026-06-25
+
+### Modificado
+- **Colapso Desktop:** Ajuste visual del contenido principal al colapsar la barra lateral para que el layout aproveche el espacio liberado.
+
+## [1.3.5] - 2026-06-25
+
+### Modificado
+- **Compatibilidad UI:** Uso de valores inline concretos para asegurar colapso desktop y apertura móvil en navegadores con cache o resolución tardía de variables CSS.
+
+## [1.3.4] - 2026-06-25
+
+### Modificado
+- **Interacción Sidebar:** Aplicación explícita del margen del contenido y posición del drawer desde JavaScript para asegurar comportamiento consistente en desktop y móvil.
+
+## [1.3.3] - 2026-06-25
+
+### Modificado
+- **Navegación Final:** Corrección de estados cruzados entre sidebar colapsado en desktop y drawer móvil.
+- **Assets GitHub Pages:** Versionado de `index.css` e `index.js` en el HTML para evitar cache viejo al publicar.
+
+## [1.3.2] - 2026-06-25
+
+### Modificado
+- **Topbar Desktop:** Alineación consistente entre buscador, botón de tema y botón de copiar prompt.
+- **Sidebar Desktop:** Nuevo modo colapsado que conserva solo iconos y ajusta el contenido principal.
+- **Navegación Responsive:** El botón lateral ahora funciona como colapso en desktop y cierre en móvil.
+
 ## [1.3.1] - 2026-06-25
 
 ### Modificado
