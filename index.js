@@ -4,10 +4,13 @@ const docsDatabase = {
     "agents-md": {
         title: "AGENTS.md",
         status: "Requerido",
-        description: "Entrada principal para agentes autónomos. Debe ser breve, operativa y enlazada.",
+        description: "Entrada principal para agentes autónomos. Debe ser breve, operativa, enlazada y basada en evidencia local.",
         code: `# Instrucciones de Agente (AGENTS.md)
 
 Este repositorio contiene [descripción breve del proyecto].
+
+## Flujo de Trabajo
+Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar.
 
 ## Stack Detectado
 - **Tipo:** [app, biblioteca, monorepo, infraestructura, documentación]
@@ -127,6 +130,8 @@ No inventar modelos ni APIs inexistentes.`
 
 Descripción clara para humanos.
 
+El producto debe ser entendible sin estudiar una metodología: qué es, cómo empezar, qué puede hacer un agente y qué necesita aprobación humana.
+
 ## Inicio Rápido
 1. [Paso real confirmado]
 2. [Comando real confirmado]
@@ -191,7 +196,9 @@ const fallbacks = {
 
 Tu misión es convertir el repositorio actual en un proyecto **agents-first** y **human-friendly**.
 
-Este prompt es universal. No asumas lenguaje, framework, gestor de paquetes, arquitectura, proveedor cloud, base de datos ni herramienta de IA. Primero lee el repositorio, detecta la realidad del proyecto y documenta solo lo que puedas sostener con evidencia local.
+Este prompt es universal y de adopción inmediata: Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar. No es un framework ni una metodología pesada.
+
+No asumas lenguaje, framework, gestor de paquetes, arquitectura, proveedor cloud, base de datos ni herramienta de IA. Primero lee el repositorio, detecta la realidad del proyecto y documenta solo lo que puedas sostener con evidencia local.
 
 Flujo obligatorio:
 1. Realiza una auditoría inicial de solo lectura.

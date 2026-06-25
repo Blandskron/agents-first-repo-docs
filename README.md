@@ -2,7 +2,9 @@
 
 Repositorio profesional para convertir cualquier proyecto de software en un repositorio **agents-first** y **human-friendly**.
 
-La idea es simple: un dev entra, copia el prompt maestro, lo pega en el agente que use y el agente queda con una misión clara para auditar, limpiar y reconstruir la documentación del repositorio objetivo sin asumir stack ni inventar arquitectura.
+La idea es simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**. Un dev entra, copia el prompt maestro, lo pega en el agente que use y el agente queda con una misión clara para auditar, limpiar y reconstruir la documentación del repositorio objetivo sin asumir stack, herramienta ni arquitectura.
+
+El producto de este repositorio es el prompt. El repositorio completo funciona como ejemplo vivo de cómo debería verse un proyecto avanzado, profesional y fácil de mantener cuando está preparado para agentes y para humanos.
 
 > [!TIP]
 > **Sitio GitHub Pages:** usa la versión visual para leer, navegar y copiar el prompt desde [blandskron.github.io/agents-first-repo-docs](https://blandskron.github.io/agents-first-repo-docs/).
@@ -17,15 +19,31 @@ La idea es simple: un dev entra, copia el prompt maestro, lo pega en el agente q
 - Un ejemplo de uso en [examples/usage-example.md](examples/usage-example.md).
 - Una página estática con HTML, CSS y JS lista para GitHub Pages.
 
+## Qué No Es
+
+- No es un framework.
+- No es una metodología pesada de documentación.
+- No obliga a usar un agente, modelo, lenguaje o proveedor específico.
+- No reemplaza la revisión humana en cambios sensibles.
+- No inventa arquitectura: obliga al agente a detectar la realidad del repositorio antes de actuar.
+
 ## Uso Rápido
 
 1. Abre [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
 2. Copia todo el contenido.
 3. Pégalo en tu agente de codificación o documentación.
-4. Ejecuta el agente desde la raíz del repositorio que quieres convertir.
-5. Revisa el plan que proponga antes de aprobar eliminaciones o cambios sensibles.
+4. Pide al agente que ejecute primero una auditoría de solo lectura.
+5. Revisa y aprueba el plan antes de aplicar cambios.
 
 El prompt está diseñado para funcionar con cualquier agente moderno: no depende de Claude, Gemini, Copilot, ChatGPT, Codex ni de un framework específico.
+
+## Para Quién Es
+
+- Devs que quieren preparar repositorios para trabajo asistido por agentes sin estudiar una guía larga.
+- Equipos que reciben repositorios heredados con documentación rota, duplicada o contradictoria.
+- Maintainers que necesitan un punto de entrada claro para humanos y agentes.
+- Proyectos nuevos que quieren partir con una estructura documental profesional.
+- Repositorios backend, frontend, fullstack, infraestructura, datos, SDKs, prompts o documentación pública.
 
 ## Para Qué Sirve
 
@@ -124,6 +142,14 @@ No todos los archivos son obligatorios. El agente debe crear solo lo que tenga s
 - Mantener `AGENTS.md` breve, operativo y enlazado.
 - Mantener `README.md` útil para humanos.
 - Registrar cambios del prompt en [docs/CHANGELOG.md](docs/CHANGELOG.md).
+
+## Norte de Calidad
+
+Un repo convertido con este prompt debe poder responder tres preguntas sin obligar al agente o al dev a investigar desde cero:
+
+- Qué es este proyecto y cómo se trabaja.
+- Qué puede tocar un agente y qué requiere aprobación humana.
+- Qué comandos, validaciones y documentos son reales según evidencia local.
 
 ## Página GitHub Pages
 

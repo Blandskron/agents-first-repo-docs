@@ -4,6 +4,14 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [1.4.0] - 2026-06-25
+
+### Modificado
+- **Norte de Producto:** Refuerzo del posicionamiento del repositorio como prompt universal de adopción inmediata bajo el flujo `Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar`.
+- **Prompt Maestro:** Clarificación de que el estándar no es un framework ni una metodología pesada, y que debe crear profundidad documental solo cuando reduzca incertidumbre real.
+- **README y AGENTS:** Alineación del mensaje público con el objetivo de servir como ejemplo vivo profesional, agnóstico a stack y agente.
+- **GitHub Pages:** Actualización de textos principales y versión visible para presentar mejor la promesa simple del proyecto.
+
 ## [1.3.7] - 2026-06-25
 
 ### Modificado

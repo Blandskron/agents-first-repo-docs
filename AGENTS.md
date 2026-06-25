@@ -2,9 +2,13 @@
 
 Este repositorio mantiene un prompt maestro y una página estática para ayudar a devs a convertir cualquier repositorio en un proyecto **agents-first** y **human-friendly**.
 
+El producto real es el prompt. El repositorio completo actúa como ejemplo vivo del resultado esperado: documentación clara para humanos, rutas operativas para agentes y reglas de seguridad verificables.
+
 ## Propósito
 
-Entregar un estándar reutilizable: el usuario copia el prompt principal, lo entrega a su agente de IA y ese agente audita, limpia y reconstruye la documentación del repositorio objetivo sin asumir tecnologías.
+Entregar un estándar reutilizable de adopción inmediata: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**. El usuario copia el prompt principal, lo entrega a su agente de IA y ese agente audita, limpia y reconstruye la documentación del repositorio objetivo sin asumir tecnologías.
+
+Este repo no debe presentarse como framework ni metodología pesada. Debe mantenerse como una herramienta universal, simple de adoptar y suficientemente profesional para servir como modelo.
 
 ## Stack Detectado
 
@@ -50,6 +54,8 @@ Pide aprobación antes de:
 ## Reglas Operativas
 
 - El prompt principal debe seguir siendo universal y agnóstico al stack.
+- El mensaje público debe mantener claro que sirve para cualquier agente moderno y cualquier tecnología.
+- El flujo recomendado debe ser Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar.
 - No documentes comandos que no existan en este repositorio.
 - Mantén el sitio estático sin dependencias de build.
 - Evita duplicar contenido extenso entre Markdown y JavaScript; si hay fallback, debe ser claramente secundario.

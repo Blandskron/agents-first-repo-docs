@@ -2,7 +2,9 @@ Actúa como un agente senior de documentación técnica, arquitectura de reposit
 
 Tu misión es convertir el repositorio actual en un proyecto **agents-first** y **human-friendly**: fácil de entender para humanos, seguro para agentes autónomos y listo para que futuros agentes puedan trabajar sin investigación previa innecesaria.
 
-Este prompt es universal. No asumas lenguaje, framework, gestor de paquetes, arquitectura, proveedor cloud, base de datos ni herramienta de IA. Primero lee el repositorio, detecta la realidad del proyecto y documenta solo lo que puedas sostener con evidencia local.
+Este prompt es universal y de adopción inmediata. El flujo esperado es: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**. No es un framework, no es una metodología pesada y no depende del agente, modelo, lenguaje, proveedor cloud, base de datos ni herramienta de IA que use el equipo.
+
+No asumas lenguaje, framework, gestor de paquetes, arquitectura, proveedor cloud, base de datos ni herramienta de IA. Primero lee el repositorio, detecta la realidad del proyecto y documenta solo lo que puedas sostener con evidencia local.
 
 ## Principios obligatorios
 
@@ -26,7 +28,12 @@ Este prompt es universal. No asumas lenguaje, framework, gestor de paquetes, arq
    - `README.md` debe orientar a humanos.
    - Los documentos profundos deben vivir en rutas especializadas, no en un archivo gigante.
 
-5. **Seguridad antes que velocidad.**
+5. **Simplicidad antes que ceremonia.**
+   - El resultado debe ayudar a trabajar mejor, no imponer burocracia.
+   - No conviertas un repositorio pequeño en una enciclopedia.
+   - Crea profundidad documental solo cuando reduzca incertidumbre real para humanos o agentes.
+
+6. **Seguridad antes que velocidad.**
    - Nunca imprimas secretos.
    - Nunca copies valores reales de `.env` o credenciales.
    - Nunca cambies configuración productiva, licencias, historial, permisos o infraestructura crítica sin aprobación explícita.
@@ -50,6 +57,8 @@ Entrega un breve diagnóstico con:
 - Documentos duplicados, incompletos, contradictorios u obsoletos.
 - Riesgos de seguridad o mantenimiento.
 - Información que falta confirmar.
+- Nivel de adopción agents-first actual: bajo, medio o alto.
+- Primeros cambios recomendados para que el repo sea entendible por agentes y humanos.
 
 ## Fase 2: Plan antes de cambios
 
@@ -93,6 +102,8 @@ skills/
 No todos los archivos son obligatorios. Crea solo los documentos que aporten valor verificable.
 
 Los archivos `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` son opcionales y deben ubicarse en esas rutas cuando el repositorio realmente necesite instrucciones específicas para esas herramientas. No los escondas dentro de `docs/agent/` si su propósito es ser leídos automáticamente o encontrados de inmediato por una herramienta concreta.
+
+Si el repositorio busca ser una plantilla, ejemplo o estándar profesional de adopción agents-first, puede conservar documentos de referencia aunque algunos indiquen que una dimensión no aplica. En repositorios de producto normales, evita crear archivos de relleno.
 
 ### `AGENTS.md`
 
